@@ -10,7 +10,9 @@ namespace NodeCanvas.Tasks.Actions
 	{
         public BBParameter<GameObject> p;
 		public BBParameter<float> Hunger;
-		public BBParameter<Component> controller;
+		public BBParameter<float> timer;
+
+		PlayerController controller;
 
         protected override string OnInit() 
 		{
@@ -26,27 +28,35 @@ namespace NodeCanvas.Tasks.Actions
 
 		protected override void OnUpdate() 
 		{
+			Debug.Log("HI");
 			Hunger.value = 20;
-			if (Hunger.value >= 10)
+
+            if (Hunger.value >= 10)
+            {
+                Debug.Log("ehfsgqfffbbbbbbbbb");
+                controller.gotBit();
+                timer.value += 1 * Time.deltaTime;
+            }
+
+            if (timer.value >= 5)
 			{
-				controller.value = null;
+				controller.walking();
+				EndAction(true);
 			}
-			else
-			{
-				return;
-			}
-		}
+
+
+        }
 
 		//Called when the task is disabled.
 		protected override void OnStop() 
 		{
-			
-		}
+
+        }
 
 		//Called when the task is paused.
 		protected override void OnPause() 
 		{
-			
-		}
+            
+        }
 	}
 }

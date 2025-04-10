@@ -27,6 +27,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        walking();
+    }
+
+    public void walking()
+    {
         rb.AddForce(xInput * Speed, 0, yInput * Speed);
+    }
+
+    public void gotBit()
+    {
+        Speed = 0;
     }
 }

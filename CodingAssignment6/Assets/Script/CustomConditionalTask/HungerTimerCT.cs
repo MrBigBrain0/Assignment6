@@ -17,7 +17,7 @@ namespace NodeCanvas.Tasks.Conditions
 
         protected override bool OnCheck()
         {
-            if (Hunger.value <= 10)
+            if (Hunger.value <= 0)
             {
                 return true;
             }
