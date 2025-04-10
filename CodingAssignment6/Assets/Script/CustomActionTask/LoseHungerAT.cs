@@ -9,6 +9,7 @@ namespace NodeCanvas.Tasks.Actions
 	public class LoseHungerAT : ActionTask 
 	{
 		public BBParameter<float> Hunger;
+		public BBParameter<float> Timer;
 		protected override string OnInit() 
 		{
 			return null;
@@ -21,6 +22,7 @@ namespace NodeCanvas.Tasks.Actions
 		protected override void OnUpdate() 
 		{
 			Hunger.value -= 1 * Time.deltaTime;
+			Timer.value = 0;
 		}
 
 		protected override void OnStop() 

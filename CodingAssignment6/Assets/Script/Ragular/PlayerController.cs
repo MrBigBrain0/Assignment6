@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public void gotBit()
     {
+        Debug.Log("BARK!");
         Speed = 0;
     }
 }
