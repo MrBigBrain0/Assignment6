@@ -8,6 +8,7 @@ namespace NodeCanvas.Tasks.Actions
 
 	public class LoseHungerAT : ActionTask 
 	{
+		//Public veribles that determin the wolfs hunger and a timer verribale 
 		public BBParameter<float> Hunger;
 		public BBParameter<float> Timer;
 		protected override string OnInit() 
@@ -21,6 +22,7 @@ namespace NodeCanvas.Tasks.Actions
 
 		protected override void OnUpdate() 
 		{
+			//lowers the wolf hunger and resets the timers value
 			Hunger.value -= 1 * Time.deltaTime;
 			Timer.value = 0;
 		}
