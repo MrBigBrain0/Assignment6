@@ -6,44 +6,27 @@ using UnityEngine;
 namespace NodeCanvas.Tasks.Actions 
 {
 
-	public class BitAT : ActionTask 
+	public class LoseHungerAT : ActionTask 
 	{
-        public BBParameter<GameObject> p;
 		public BBParameter<float> Hunger;
-		public BBParameter<Component> controller;
-
-        protected override string OnInit() 
+		protected override string OnInit() 
 		{
 			return null;
 		}
-
-
 		protected override void OnExecute() 
 		{
 			
 		}
 
-
 		protected override void OnUpdate() 
 		{
-			Hunger.value = 20;
-			if (Hunger.value >= 10)
-			{
-				controller.value = null;
-			}
-			else
-			{
-				return;
-			}
+			Hunger.value -= 1 * Time.deltaTime;
 		}
 
-		//Called when the task is disabled.
 		protected override void OnStop() 
 		{
 			
 		}
-
-		//Called when the task is paused.
 		protected override void OnPause() 
 		{
 			
