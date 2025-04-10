@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float Speed = 5f;
     private float xInput;
     private float yInput;
+    float maxTime = 3;
+    float timeElapsed;
 
     Rigidbody rb;
 
@@ -32,21 +35,18 @@ public class PlayerController : MonoBehaviour
         xInput = Input.GetAxis("Horizontal");
         yInput = Input.GetAxis("Vertical");
 
-
-
-       /* if (Input.GetKeyDown(KeyCode.Space))
+        if(timeElapsed >= maxTime)
         {
-        }*/
+            Speed = 3;
+            timeElapsed = 0;
+        }
 
-
+        timeElapsed += Time.deltaTime;
 
         if (distanceToWolf <= wolfDistThreshold )
         {
-
             gotBit();
         }
-
-
     }
 
     private void FixedUpdate()
