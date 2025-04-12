@@ -25,23 +25,25 @@ namespace NodeCanvas.Tasks.Actions
 
 		protected override void OnExecute() 
 		{
-				controller.gotBit();
-			
+			//this was part of me trying to fix the wolf bitting issue it did not work
+			//controller.gotBit();	
 		}
 
 
 		protected override void OnUpdate() 
 		{
+			//debug line to see if on update is working
 			Debug.Log("HI");
 
-			//when the wolf gets hungy enough it will increase the timer value and call gotBit to set the players speed to zero
+			//when the wolf gets hungy enough it will increase the timer value
             if (Hunger.value <= 10)
             {
                 Debug.Log("ehfsgqfffbbbbbbbbb");
                 timer.value += 1 * Time.deltaTime;
 
             }
-
+			
+			//this means that the wolf will walk away after 5 seconds
             if (timer.value >= 5)
 			{
                 Hunger.value = 20;

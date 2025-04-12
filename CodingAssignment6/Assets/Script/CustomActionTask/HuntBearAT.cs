@@ -8,8 +8,9 @@ namespace NodeCanvas.Tasks.Actions
 
 	public class HuntBearAT : ActionTask
 	{
-		public BBParameter <GameObject> p;
-		public BBParameter <GameObject> h;
+		//gae objects for player and hunter posistions
+		public BBParameter <GameObject> player;
+		public BBParameter <GameObject> hunter;
 		protected override string OnInit() 
 		{
 			return null;
@@ -22,8 +23,9 @@ namespace NodeCanvas.Tasks.Actions
 
 		protected override void OnUpdate() 
 		{
-			p.value.transform.position = new Vector3(-0.3002234f, 1.22f, -23.92f);
-			h.value.transform.position = new Vector3(20.14f, 0.44f, 4.61f);
+			//resets the player and hunter postion back to where they started at the begining of the game
+			player.value.transform.position = new Vector3(-0.3002234f, 1.22f, -23.92f);
+			hunter.value.transform.position = new Vector3(20.14f, 0.44f, 4.61f);
 
         }
 

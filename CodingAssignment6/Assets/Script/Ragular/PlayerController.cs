@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;
 
+    //wolf info because I could not get it to work in the fsm tree but hey it works now
     public GameObject wolf;
     float distanceToWolf;
     public float wolfDistThreshold;
@@ -30,7 +31,9 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        //set up the wolf values so that if it gets close to the player the player will stop moving
         distanceToWolf = Vector3.Distance(transform.position, wolf.transform.position);
+
         //fills the verriables with the intput values
         xInput = Input.GetAxis("Horizontal");
         yInput = Input.GetAxis("Vertical");
@@ -41,8 +44,10 @@ public class PlayerController : MonoBehaviour
             timeElapsed = 0;
         }
 
+        //set ups a timer value
         timeElapsed += Time.deltaTime;
 
+        //calls got bit if the wolf is in range
         if (distanceToWolf <= wolfDistThreshold )
         {
             gotBit();
